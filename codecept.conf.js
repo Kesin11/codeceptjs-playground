@@ -1,10 +1,10 @@
 exports.config = {
-  tests: './*_test.js',
+  tests: './tests/*_test.js',
   output: './output',
   helpers: {
     Puppeteer: {
       url: 'http://localhost',
-      show: true,
+      show: false,
       waitForNavigation: "networkidle2",
       windowSize: "1024x800"
     }
