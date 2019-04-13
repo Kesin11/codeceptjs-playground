@@ -1,10 +1,12 @@
+const debug = process.env.DEBUG ? true : false
+
 exports.config = {
   tests: './tests/*_test.js',
   output: './output',
   helpers: {
     Puppeteer: {
       url: 'http://localhost',
-      show: false,
+      show: debug ? true : false,
       waitForNavigation: "networkidle2",
       windowSize: "1024x800"
     }
@@ -15,6 +17,11 @@ exports.config = {
   bootstrap: null,
   mocha: {},
   name: 'codeceptjs-playground',
+  multiple: {
+    parallel: {
+      chunks: 2
+    }
+  },
   plugins: {
     retryFailedStep: {
       enabled: true,
