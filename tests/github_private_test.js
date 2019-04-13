@@ -1,6 +1,6 @@
 /// <reference path="../steps.d.ts" />
 
-Feature('GitHub')
+Feature('GitHub private')
 
 Before(login => {
   login('user')

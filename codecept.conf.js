@@ -28,6 +28,7 @@ exports.config = {
           login: (I) => {
             const username = process.env.USERNAME
             const password = process.env.PASSWORD
+            if (!username || !password) throw 'Env USERNAME or PASSWORD are null!!'
             I.amOnPage('https://github.com/login')
             I.fillField('Username or email address', username)
             I.fillField('Password', password)
