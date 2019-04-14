@@ -2,7 +2,7 @@
 
 TODO
 
-- [ ] Data driven tests
+- [x] Data driven tests
 - [ ] Page object pattern
 - [ ] extend I object (add I.amOnMypage)
 - [ ] Moblie window size tests
