@@ -16,11 +16,9 @@ Scenario('Trending', (I) => {
   // リスト要素があること
 })
 
-Scenario('Search codeceptjs repository', (I) => {
+Scenario('Search codeceptjs repository', (I, topPage) => {
   I.amOnPage('https://github.com/')
-  I.click('input.header-search-input')
-  I.fillField('input.header-search-input', 'codeceptjs')
-  I.pressKey('Enter')
+  topPage.search('codeceptjs')
 
   // Search result page
   I.see('Codeception/CodeceptJS')
@@ -30,11 +28,9 @@ Scenario('Search codeceptjs repository', (I) => {
   I.seeCurrentUrlEquals('https://github.com/Codeception/CodeceptJS')
 })
 
-Scenario('Search me', (I) => {
+Scenario('Search me', (I, topPage) => {
   I.amOnPage('https://github.com/')
-  I.click('input.header-search-input')
-  I.fillField('input.header-search-input', 'Kesin11')
-  I.pressKey('Enter')
+  topPage.search('Kesin11')
 
   // Search result page
   I.click('Users')

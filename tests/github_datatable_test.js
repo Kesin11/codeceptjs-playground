@@ -8,11 +8,9 @@ repositories.add(['puppeteer', 'GoogleChrome/puppeteer'])
 Feature('GitHub search using DataTable')
 
 // Use special param `current` to get current data set
-Data(repositories).Scenario('Search repositories', (I, current) => {
+Data(repositories).Scenario('Search repositories', (I, current, topPage) => {
   I.amOnPage('https://github.com/')
-  I.click('input.header-search-input')
-  I.fillField('input.header-search-input', current.searchWord)
-  I.pressKey('Enter')
+  topPage.search(current.searchWord)
 
   // Search result page
   within('ul.repo-list', () => {

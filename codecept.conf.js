@@ -12,7 +12,8 @@ exports.config = {
     }
   },
   include: {
-    I: './steps_file.js'
+    I: './steps_file.js',
+    topPage: './pages/top.js'
   },
   bootstrap: null,
   mocha: {},

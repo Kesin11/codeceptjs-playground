@@ -1,5 +1,5 @@
 
-type ICodeceptCallback = (i: CodeceptJS.I, login:CodeceptJS.login) => void;
+type ICodeceptCallback = (i: CodeceptJS.I, topPage:CodeceptJS.topPage, login:CodeceptJS.login) => void;
 
 declare class FeatureConfig {
   retry(times:number): FeatureConfig
@@ -285,6 +285,12 @@ declare namespace CodeceptJS {
     retryStep(opts: string) : void,
 
   }
+
+  export interface topPage {
+    search(string: string) : void,
+
+  }
+
 
   export interface login {
 
