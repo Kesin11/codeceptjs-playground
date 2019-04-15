@@ -7,7 +7,6 @@ Before(login => {
 })
 
 Scenario('My Pull Requests', (I) => {
-  I.amOnPage('https://github.com/')
   I.click('Pull requests')
 
   I.seeCurrentUrlEquals('https://github.com/pulls')
@@ -15,7 +14,6 @@ Scenario('My Pull Requests', (I) => {
 })
 
 Scenario('My Issue', (I) => {
-  I.amOnPage('https://github.com/')
   I.click('Issue')
 
   I.seeCurrentUrlEquals('https://github.com/issues')

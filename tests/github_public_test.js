@@ -17,7 +17,6 @@ Scenario('Trending', (I) => {
 })
 
 Scenario('Search codeceptjs repository', (I, topPage) => {
-  I.amOnPage('https://github.com/')
   topPage.search('codeceptjs')
 
   // Search result page
@@ -29,7 +28,6 @@ Scenario('Search codeceptjs repository', (I, topPage) => {
 })
 
 Scenario('Search me', (I, topPage) => {
-  I.amOnPage('https://github.com/')
   topPage.search('Kesin11')
 
   // Search result page
