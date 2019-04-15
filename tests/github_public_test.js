@@ -51,7 +51,7 @@ Scenario('Search me', (I) => {
 })
 
 Scenario('My profile page', (I) => {
-  I.amOnPage('https://github.com/Kesin11')
+  I.amOnMyProfile()
 
   I.see('Sign up')
   I.see('Block or report user')

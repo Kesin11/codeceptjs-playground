@@ -1,5 +1,5 @@
 
-type ICodeceptCallback = (i: CodeceptJS.I) => void;
+type ICodeceptCallback = (i: CodeceptJS.I, login:CodeceptJS.login) => void;
 
 declare class FeatureConfig {
   retry(times:number): FeatureConfig
@@ -280,8 +280,13 @@ declare namespace CodeceptJS {
     waitForDetached(locator: string, sec: number) : void,
     debug(msg: string) : void,
     debugSection(section: string, msg: string) : void,
+    amOnMyProfile() : void,
     say: () => any; 
     retryStep(opts: string) : void,
+
+  }
+
+  export interface login {
 
   }
 

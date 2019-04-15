@@ -23,7 +23,7 @@ Scenario('My Issue', (I) => {
 })
 
 Scenario('My profile page', (I) => {
-  I.amOnPage('https://github.com/Kesin11')
+  I.amOnMyProfile()
 
   I.dontSee('Sign up')
   I.dontSee('Block or report user')
