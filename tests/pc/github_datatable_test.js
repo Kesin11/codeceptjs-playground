@@ -1,9 +1,8 @@
-/// <reference path="../steps.d.ts" />
+/// <reference path="../../steps.d.ts" />
 
 let repositories = new DataTable(['searchWord', 'orgReponame']); //
 repositories.add(['codeceptjs', 'Codeception/CodeceptJS'])
 repositories.add(['selenium', 'SeleniumHQ/selenium'])
-repositories.add(['puppeteer', 'GoogleChrome/puppeteer'])
 
 Feature('GitHub search using DataTable')
 

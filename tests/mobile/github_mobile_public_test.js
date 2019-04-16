@@ -1,6 +1,6 @@
 /// <reference path="../../steps.d.ts" />
 
-Feature('GitHub public mobile').retry(2)
+Feature('GitHub mobile public').retry(1)
 
 Before((I) => {
   I.resizeWindow(375, 667)

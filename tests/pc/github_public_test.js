@@ -1,6 +1,6 @@
 /// <reference path="../../steps.d.ts" />
 
-Feature('GitHub public').retry(2)
+Feature('GitHub public').retry(1)
 
 Before((I) => {
   I.amOnPage('https://github.com/')
