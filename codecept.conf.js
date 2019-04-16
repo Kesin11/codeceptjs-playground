@@ -1,7 +1,7 @@
 const debug = process.env.DEBUG ? true : false
 
 exports.config = {
-  tests: './tests/*_test.js',
+  tests: './tests/**/*_test.js',
   output: './output',
   helpers: {
     Puppeteer: {
