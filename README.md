@@ -6,6 +6,6 @@ TODO
 - [x] Page object pattern
 - [x] extend I object (add I.amOnMypage)
 - [x] Moblie window size tests
-- [ ] Junit reporter
+- [x] Junit reporter
 - [ ] Allure
 - [ ] CircleCI

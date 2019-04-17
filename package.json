@@ -6,7 +6,8 @@
   "scripts": {
     "test": "codeceptjs run",
     "test:debug": "DEBUG=1 codeceptjs run --debug",
-    "test:parallel": "codeceptjs run-multiple parallel --debug"
+    "test:parallel": "codeceptjs run-multiple parallel --debug",
+    "test:junit": "codeceptjs run --reporter mocha-junit-reporter"
   },
   "author": "kesin1202000@gmail.com",
   "license": "MIT",
@@ -14,5 +15,8 @@
   "devDependencies": {
     "codeceptjs": "2.0.8",
     "puppeteer": "1.14.0"
+  },
+  "dependencies": {
+    "mocha-junit-reporter": "1.22.0"
   }
 }

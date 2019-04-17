@@ -16,7 +16,11 @@ exports.config = {
     topPage: './pages/top.js'
   },
   bootstrap: null,
-  mocha: {},
+  mocha: {
+    reporterOptions: {
+      mochaFile: "report/result.xml"
+    }
+  },
   name: 'codeceptjs-playground',
   multiple: {
     parallel: {
