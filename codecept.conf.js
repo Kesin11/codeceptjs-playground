@@ -28,6 +28,9 @@ exports.config = {
     }
   },
   plugins: {
+    allure: {
+      enabled: true
+    },
     retryFailedStep: {
       enabled: true,
     },
