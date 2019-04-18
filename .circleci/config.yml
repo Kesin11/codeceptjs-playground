@@ -21,7 +21,9 @@ jobs:
 
       - run: npm run test
 
-      # outputを保存
+      - store_artifacts:
+          path: ./output
+
       # allure_reportをマウント
         # cacheとかを使えば前のテストから引き継dける？
       # historyを抜き出してallure generate
