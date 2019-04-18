@@ -7,6 +7,10 @@ jobs:
     steps:
       - checkout
 
+      - run: sudo apt-add-repository ppa:qameta/allure
+      - run: sudo apt-get update
+      - run: sudo apt-get install allure
+
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
