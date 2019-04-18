@@ -24,7 +24,17 @@ jobs:
       - store_artifacts:
           path: ./output
 
-      # allure_reportをマウント
-        # cacheとかを使えば前のテストから引き継dける？
-      # historyを抜き出してallure generate
-      # persistentに保存
+      # restore before allure report for save history of allure report
+      - restore_cache:
+          keys:
+            - v1-allure-report
+      
+      - run: npm run report:allure
+
+      - store_artifacts:
+          path: ./allure-report
+
+      - save_cache:
+          paths:
+            - allure-report
+          key: v1-allure-report
