@@ -1,6 +1,6 @@
-version: 2
+version: 2.1
 jobs:
-  build:
+  test:
     docker:
       - image: circleci/node:10-browsers
     working_directory: ~/repo
@@ -24,20 +24,49 @@ jobs:
       - store_artifacts:
           path: ./output
 
-      # TODO: pipelineでallure-rerportがインストール済みのdockerを使って生成する
-      # これが良さそう https://hub.docker.com/r/frankescobar/allure-docker-service
+      # save output for next step
+      - persist_to_workspace:
+          root: /tmp/output
+          path: ./output
+
+
+  allure:
+    docker:
+      - image: frankescobar/allure-docker-service
+    working_directory: ~/repo
+    steps:
+      - checkout
 
       # restore before allure report for save history of allure report
       - restore_cache:
           keys:
-            - v1-allure-report
+            - v1-allure-report-{{ .Branch }}
+
+      # attach output that was created before step
+      - attach_workspace:
+          at: /tmp/output
+
+      - run: ls
+      - run: ls ~/repo
       
-      - run: npm run report:allure
+      - run: mkdir -p ./allure-report/history
+      - run: cp -r ./allure-report/history ./output/
+      - run: allure generate ./output ./allure-report --clean
 
       - store_artifacts:
           path: ./allure-report
 
       - save_cache:
           paths:
-            - allure-report
+            - v1-allure-report-{{ .Branch }}
           key: v1-allure-report
+          when: on_success
+
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - test
+      - allure:
+          requires:
+            - test
