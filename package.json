@@ -9,6 +9,7 @@
     "test:parallel": "codeceptjs run-multiple parallel --debug",
     "test:junit": "codeceptjs run --reporter mocha-junit-reporter",
     "test:allure": "npm run test && npm run report",
+    "test:ci": "npm run test && exit 0",
     "report": "mkdir -p allure-report/history && cp -r allure-report/history output/ && allure generate output allure-report --clean && allure open allure-report"
   },
   "author": "kesin1202000@gmail.com",

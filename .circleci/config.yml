@@ -19,7 +19,8 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npm run test
+      # Don't mark as failed because I want to exec allure step even test failed.
+      - run: npm run test:ci
 
       - store_artifacts:
           path: ./output
