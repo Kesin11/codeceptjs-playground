@@ -24,6 +24,10 @@ jobs:
       - store_artifacts:
           path: ./output
 
+      - store_test_results:
+          path: ./output
+
+
 workflows:
   version: 2.1
   build:
