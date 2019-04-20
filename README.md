@@ -83,6 +83,11 @@ npm run test:parallel
 - デバッグログ: True
 - 並列数: 2
 
+## Allure用の実行
+Allureのレポートが正しく生成されるように```npm run test```の実行前と実行後に各種操作を行っている。
+
+詳しくは後述のAllureの項目を参照
+
 ## CI環境用
 ```console
 npm run test:junit
@@ -99,12 +104,18 @@ JenkinsやCircleCIではテスト実行結果のXMLを保存することでテ�
 CodeceptJSはOSSの高機能テストレポーターである[Allure](http://allure.qatools.ru/)形式のテストレポートを出力する機能が存在する。  
 
 ```console
-npm run test # テストを実行すると./outputにallureに必要なxmlが生成される
-npm run report
+npm run test:allure # テスト実行とAllureのレポートを正しく生成するための工程を行う
 ```
 
+### History
 Allureは過去の実行記録を保存しておくことでテスト時間の推移や過去に失敗したテストケースを表示するHistory機能が存在する。  
 Historyの機能を有効化するには過去に作成した```allure-report/history/```をコピーしてから```allure generate```実行する必要があり、```npm run report```をそれを実行している。
+
+### Retry
+Allureは同じテストケースのxmlが複数存在する場合、そのテストケースをリトライしたと判定する。  
+そのため、テストが実行されるごとにoutput/に蓄積されるAllure用のxmlを放置してしまうと次回のテスト実行後にレポートを作成するとき、前回実行分の記録がリトライとして誤って判定されてしまう。
+
+これを防ぐために```npm run test:allure```では前回実行時の`output/`を削除してからテストを実行している。
 
 # LICENSE
 MIT
