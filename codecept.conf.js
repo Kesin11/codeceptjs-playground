@@ -18,7 +18,20 @@ exports.config = {
   bootstrap: null,
   mocha: {
     reporterOptions: {
-      mochaFile: "report/result.xml"
+      "codeceptjs-cli-reporter": {
+        "stdout": "-",
+        // "options": {
+          // "verbose": true,
+          // "steps": true,
+        // }
+      },
+      "mocha-junit-reporter": {
+        "stdout": "./output/console.log",
+        "options": {
+          "mochaFile": "./output/result.xml"
+        },
+        "attachments": true //add screenshot for a failed test
+      }
     }
   },
   name: 'codeceptjs-playground',

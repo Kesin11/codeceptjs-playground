@@ -7,7 +7,7 @@
     "test": "codeceptjs run",
     "test:debug": "DEBUG=1 codeceptjs run --debug",
     "test:parallel": "codeceptjs run-multiple parallel --debug",
-    "test:junit": "codeceptjs run --reporter mocha-junit-reporter",
+    "test:junit": "codeceptjs run --reporter mocha-multi",
     "test:allure": "npm run test && npm run report",
     "report": "mkdir -p allure-report/history && cp -r allure-report/history output/ && allure generate output allure-report --clean && allure open allure-report"
   },
@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "allure-commandline": "2.9.0",
-    "mocha-junit-reporter": "1.22.0"
+    "mocha-junit-reporter": "1.22.0",
+    "mocha-multi": "1.1.0"
   }
 }
