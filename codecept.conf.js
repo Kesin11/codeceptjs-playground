@@ -49,7 +49,7 @@ exports.config = {
     },
     autoLogin: {
       enabled: true,
-      saveToFile: true,
+      saveToFile: process.env.CI ? false : true, // CI環境にセッション情報が残るのはセキュリティに良くないため
       inject: 'login',
       users: {
         user: {
