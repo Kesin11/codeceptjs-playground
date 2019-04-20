@@ -20,13 +20,13 @@ exports.config = {
     reporterOptions: {
       "codeceptjs-cli-reporter": {
         "stdout": "-",
-        // "options": {
+        "options": {
           // "verbose": true,
           // "steps": true,
-        // }
+        }
       },
       "mocha-junit-reporter": {
-        "stdout": "./output/console.log",
+        "stdout": "-",
         "options": {
           "mochaFile": "./output/result.xml"
         },
