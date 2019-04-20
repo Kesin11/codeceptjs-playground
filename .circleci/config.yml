@@ -19,55 +19,13 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # Don't mark as failed because I want to exec allure step even test failed.
-      - run: npm run test:ci
+      - run: npm run test
 
       - store_artifacts:
           path: ./output
-
-      # save output for next step
-      - persist_to_workspace:
-          root: /tmp/output
-          path: ./output
-
-
-  allure:
-    docker:
-      - image: frankescobar/allure-docker-service
-    working_directory: ~/repo
-    steps:
-      - checkout
-
-      # restore before allure report for save history of allure report
-      - restore_cache:
-          keys:
-            - v1-allure-report-{{ .Branch }}
-
-      # attach output that was created before step
-      - attach_workspace:
-          at: /tmp/output
-
-      - run: ls
-      - run: ls ~/repo
-      
-      - run: mkdir -p ./allure-report/history
-      - run: cp -r ./allure-report/history ./output/
-      - run: allure generate ./output ./allure-report --clean
-
-      - store_artifacts:
-          path: ./allure-report
-
-      - save_cache:
-          paths:
-            - v1-allure-report-{{ .Branch }}
-          key: v1-allure-report
-          when: on_success
 
 workflows:
   version: 2.1
   build:
     jobs:
       - test
-      - allure:
-          requires:
-            - test
