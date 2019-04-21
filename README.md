@@ -117,5 +117,12 @@ Allureは同じテストケースのxmlが複数存在する場合、そのテ�
 
 これを防ぐために```npm run test:allure```では前回実行時の`output/`を削除してからテストを実行している。
 
+# CI
+[CircleCI用の設定](./.circleci/config.yml)
+
+テスト失敗したときのスクショは`store_artifacts`でCircleCIに保存する。  
+JUnit形式のテストレポートを作成し、`store_test_results`でテスト結果もCircleCIに保存している。
+
+
 # LICENSE
 MIT
